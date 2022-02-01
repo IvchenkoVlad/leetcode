@@ -24,9 +24,6 @@ ransomNote and magazine consist of lowercase English letters.
 
  */
 
-
-
-
 ////additionl data
 import java.util.Hashtable;
 import java.util.Arrays;
