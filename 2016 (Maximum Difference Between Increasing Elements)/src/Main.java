@@ -37,32 +37,23 @@ public class Main {
 
     }
     public static int maxDiff(int [] arr){
-        int answer = 0;
-        int min = Integer.MAX_VALUE; int minIndex = Integer.MAX_VALUE;
-        int max = Integer.MIN_VALUE; int maxIndex = Integer.MIN_VALUE;
-        boolean maxFound = false;
-        for(int i = 0; i < arr.length; i ++){
-            //search min
-            if(i == 0){
-                if(arr[i] < min){
-                    min = arr[i]; minIndex = i;
-                    continue;
-                }
-            }else {
-                if(arr[i] < min & maxIndex < minIndex){
-                    min = arr[i]; minIndex = i;
-                    continue;
-                }
-            }
+        //set min and max values in a variable
+        int min = Integer.MAX_VALUE;
+        int max = -1;
+        //iterate through the end of the loop
+        for(int i=0;i<arr.length;i++)
+        {
+            //finding max difference
+            if(arr[i] - min > max && arr[i] - min > 0)
+            {
+                max=arr[i]-min;
 
-            //search max
-            if(arr[i] > max && minIndex < i){
-                max = arr[i]; maxIndex = i;
-                maxFound = true;
+            }
+            if(arr[i] < min)
+            {
+                min = arr[i];
             }
         }
-        System.out.println(max + " " + min);
-
-        return (max - min)> 0 && maxFound ? max - min : -1;
+        return max;
     }
 }
